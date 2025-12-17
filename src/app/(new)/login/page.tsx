@@ -6,6 +6,11 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false);
+  const handleNavigate = () => {
+    setLoading(true);
+    // 2-second delay
+  };
   const router = useRouter();
   const [user, setUser] = useState({
     email: "",
@@ -17,7 +22,9 @@ const LoginPage = () => {
     try {
       const response = await axios.post("/api/users/Login", user);
       toast.success("Login successful");
-      router.push("/profile");
+      setTimeout(() => {
+        router.push("/profile");
+      }, 2000);
     } catch (error: any) {
       toast.error(error.response?.data?.message || error.message);
     }

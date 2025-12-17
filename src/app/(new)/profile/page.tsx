@@ -3,12 +3,25 @@
 import axios from "axios";
 import { get } from "http";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
+
+export const button = () =>{
+  return(
+    <>
+    <button>hi</button>
+    </>
+  )
+} 
+
 
 const Profile = () => {
   const [data, setData] = useState("");
+
   const router = useRouter();
+
+
+
   const logout = async () => {
     try {
       await axios.get("/api/users/Logout");
@@ -27,6 +40,9 @@ const Profile = () => {
       toast.error(error.message);
     }
   };
+
+ 
+
   return (
     <>
       <h2>profile</h2>

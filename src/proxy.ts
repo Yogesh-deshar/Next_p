@@ -21,5 +21,6 @@ export const config = {
         '/',
         '/profile/:path*',
         '/verifiedEmail'
+        ,'/product'
     ],
 }
